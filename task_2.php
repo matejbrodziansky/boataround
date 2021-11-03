@@ -8,13 +8,35 @@ include('views/_patrials/header.php');
 
     <?php
 
-    $parser = new Parser;
     $datas = $parser->getData()->response;
     $data_boats = $datas[0]['data'];
     $count_boats = count($data_boats);
     $this_year = date("Y");
     $count_avg_prices = [];
 
+
+    foreach ($data_boats as $key => $data) {
+
+        $prices = array_column($data_boats, 'price');
+        $max_price = max($prices);
+        $min_price = min($prices);
+
+        foreach ($data_boats as $key => $data) {
+
+            // The most expensive yachr
+            if ($data_boats[$key]['price'] == $min_price) {
+                $min_price_yacht[] = $data;
+            }
+
+            //The cheaper yacht
+            if ($data_boats[$key]['price'] == $max_price) {
+                $max_price_yacht[] = $data;
+            }
+        }
+
+    }
+
+    // If need filter from data || unset from data
     // $filter = $datas[0]['filter'];
     // unset($datas[0]['data']);
     // unset($datas[0]['filter']);
@@ -27,7 +49,7 @@ include('views/_patrials/header.php');
         <?php foreach ($data_boats as $key => $data) : ?>
             <div class="row my-3">
                 <div class="col">
-                    <p><?= $key + 1 . '. ' . $data_boats[$key]['slug'] ?>.</p>
+                    <p><?= $key + 1 . '. ' . $parser->unslugify($data_boats[$key]['slug']) ?>.</p>
 
                     <p>Average price <?= number_format($data_boats[$key]['avg_price'], 2, ',', '') ?>€</p>
 
@@ -63,6 +85,14 @@ include('views/_patrials/header.php');
                 Average price of all yacht in zadar is
                 <?= number_format($count_all_avg_prices / $count_boats, 2, ',', ''); ?>
                 €
+            </h4>
+            <h4>
+                Max price of yacht
+                <?= number_format($max_price, 2, ',', '') ?> €
+            </h4>
+            <h4>
+                Min price of yacht
+                <?= number_format($min_price, 2, ',', '') ?> €
             </h4>
 
         </div>

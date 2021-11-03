@@ -70,8 +70,8 @@ include 'views/_patrials/header.php';
     spaces('5 . Ceasar cipher');
 
 
-    $enc_text = $task->Encipher($text, 5);
-    $dec_text = $task->Decipher($enc_text, 5);
+    $enc_text = Encipher($text, 5);
+    $dec_text = Decipher($enc_text, 5);
 
     pre_r($enc_text);
     pre_r($dec_text);
@@ -85,12 +85,35 @@ include 'views/_patrials/header.php';
     ?>
     <form name="primenumber">
         Number
-        <input type="number" name="number" size="10">
+        <input type="number" name="number">
         <input type="button" value="Is prime number ? " onclick="test(this.form)">
         <input type="text" name="resp" size="6" readonly>
     </form>
 
     <?php
+    spaces();
+
+    spaces('7 . Sum of prime (continue)');
+
+    ?>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <input type="text" id="decompose_number"><br>
+                <button type="button" class="btn btn-light btn-sm mt-3" id="dec_btn">Decompose -></button>
+            </div>
+            <div class="col decompose-content">
+            
+            </div>
+        </div>
+    </div>
+
+
+
+    <?php
+
+
 
     include('views/_patrials/footer.php');
 

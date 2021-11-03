@@ -25,6 +25,6 @@ if (isset($_POST['submit'])) {
     } else {
 
         // Print error message to the browser
-        echo 'Numeric values are required';
+        echo '<p style="color: black;">Numeric values are required<p>';
     }
 }

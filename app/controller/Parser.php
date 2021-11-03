@@ -1,30 +1,33 @@
 <?php
 
 
-class Parser{
+class Parser
+{
 
     protected static $url;
     protected static $task_model;
-    public static $response;
+    public  $response;
 
     public function __construct($url = null)
     {
-        if($url){
+        if ($url) {
             self::$url = $url;
-       }
-       
+        }
     }
 
-    public static function init(){
+    public static function init()
+    {
         return new self(self::$url);
     }
 
-    public function setURL($url){
+    public function setURL($url)
+    {
         self::$url = $url;
         return $this;
     }
 
-    private function getParams(){
+    private function getParams()
+    {
         $params = [
             'destinations' => 'zadar-1',
             'category' => 'sailing-yacht',
@@ -37,33 +40,40 @@ class Parser{
             'loggedIn' => 0
         ];
 
-        
+
         return http_build_query($params);
     }
 
-    private function dumpMe($data){
-            echo '<pre>';
-            print_r($data);
-            echo '</pre>';
-            exit;
+    private function dumpMe($data)
+    {
+        echo '<pre>';
+        print_r($data);
+        echo '</pre>';
+        exit;
     }
 
-    public function getData($dump = false){
+    public function getData($dump = false)
+    {
 
-        $data = json_decode(file_get_contents(self::$url.$this->getParams()),true);
+        $data = json_decode(file_get_contents(self::$url . $this->getParams()), true);
 
-        if(isset($data['data']) && !empty($data['data'])){
-            if($dump){
+        if (isset($data['data']) && !empty($data['data'])) {
+            if ($dump) {
                 $this->dumpMe($data['data']);
             }
 
             $this->response = $data['data'];
-            
         }
-           
+
         return $this;
-        
     }
+
+    public function unslugify($text,  $divider =  ' ')
+    {
+        return $text = ucfirst(str_replace('-', '' . $divider . '', $text));
+     
+    }
+
 }
 
 Parser::init()

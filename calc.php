@@ -1,29 +1,21 @@
 <?php
 
 include 'views/_patrials/header.php';
-
 ?>
+		<div class="container cal-form col-2" >
+			<?php require './app/controller/calcController.php';?>
 
-
-		<div class="container col-5" style="margin-top: 50px">
-
-
-			<?php 
-			require './app/controller/calcController.php'
-			;?>
-
-		    <!-- Calculator form -->
-			
+		    <!-- Calculator form -->		
 		    <form method="post">
-		        <input name="number1" type="text" class="form-control inputField" />
+		        <input name="number1" type="number" placeholder="number 1" class="form-control inputField mb-3" />
 		        <select name="operation">
-		        	<option value="plus">Plus</option>
-		            <option value="minus">Minus</option>
-		            <option value="times">Times</option>
-		            <option value="divided by">Divided By</option>
+		        	<option value="plus">+</option>
+		            <option value="minus">-</option>
+		            <option value="times">*</option>
+		            <option value="divided by">/</option>
 		        </select>
-		        <input name="number2" type="text" class="form-control inputField" />
-		        <input name="submit" type="submit" value="Calculate" class="btn btn-primary" />
+		        <input name="number2" type="number" placeholder="number 2" class="form-control inputField mt-3" />
+		        <input name="submit" type="submit" value="Calculate" class="btn btn-primary mt-3" />
 		    </form>
 		</div>
 	</body>

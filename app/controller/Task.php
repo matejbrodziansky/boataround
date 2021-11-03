@@ -124,32 +124,5 @@ class Task
         echo $csv_path . ' was succesfuly converted to -> ' . $dir . '/' . $filename . '  .';
     }
 
-    //------------ 5 ----------------------------
 
-
-
-    public function Encipher($input, $key)
-    {
-        $output = "";
-
-        $inputArr = str_split($input);
-        foreach ($inputArr as $ch)
-            $output .= Cipher($ch, $key);
-
-        return $output;
-    }
-
-    public function Decipher($input, $key)
-    {
-        return Encipher($input, 26 - $key);
-    }
-
-    public function Cipher($ch, $key)
-    {
-        if (!ctype_alpha($ch))
-            return $ch;
-
-        $offset = ord(ctype_upper($ch) ? 'A' : 'a');
-        return chr(fmod(((ord($ch) + $key) - $offset), 26) + $offset);
-    }
 }
