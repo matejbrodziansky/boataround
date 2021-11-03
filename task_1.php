@@ -1,6 +1,6 @@
 <?php
 
-include '_patrials/header.php';
+include 'views/_patrials/header.php';
 
 ?>
 
@@ -82,7 +82,17 @@ include '_patrials/header.php';
 
     spaces('7 . Sum of prime (not completed task )');
 
-    include('_patrials/footer.php');
+    ?>
+    <form name="primenumber">
+        Number
+        <input type="number" name="number" size="10">
+        <input type="button" value="Is prime number ? " onclick="test(this.form)">
+        <input type="text" name="resp" size="6" readonly>
+    </form>
+
+    <?php
+
+    include('views/_patrials/footer.php');
 
     ?>
 

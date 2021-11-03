@@ -34,6 +34,13 @@ Mrzí ma, toto zadanie sa mi nepodarilo. potrápil som sa nejaké veci išli no 
 nechávam aspon zobraziť ktorými prvo číšlami sa dá skusiť rozložiť (nie do 0) 
 
 
+#BONUS Create unit test
+Podla materialov čo som našiel som vytvoril test  
+terminál:   ./vendor/bin/phpunit   
+calc.php (kalkulačka bola k tomu, to som len tak rozbehol tiež)
 
+
+z footeru preč prime
+opraviť function.php
 
 

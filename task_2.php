@@ -1,5 +1,5 @@
 <?php
-include('_patrials/header.php');
+include('views/_patrials/header.php');
 
 
 ?>
@@ -67,7 +67,9 @@ include('_patrials/header.php');
 
         </div>
     </div>
-</div>
-<?php
+    <?php
+    include('views/_patrials/footer.php');
 
-include('./_patrials/footer.php');
+    ?>
+
+</div>

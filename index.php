@@ -1,5 +1,5 @@
 <?php
-include('_patrials/header.php');
+include('views/_patrials/header.php');
 
 ?>
 
