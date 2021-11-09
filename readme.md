@@ -41,7 +41,7 @@ prvá vypíše či je číslo prvo číšlo
 
 druhá  
 Decompose number ten kód v app.js je určite hrozný bordel.. vela cyklov a tak .. no snažil som sa to nejako spraviť . 
-80 číslo zvládlo, ked sa tam pošle väčšie číslo tak to nezvládne .. 
+
 
 
 
@@ -51,7 +51,7 @@ terminál:   ./vendor/bin/phpunit
 calc.php (kalkulačka bola k tomu na gite , to som len tak rozbehal tiež)
 
 
-Ďakujem :)
+
 
 
 
